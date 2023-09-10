@@ -35,9 +35,9 @@ async def main():
         if target["html-tag"]:
             result = [item.text for item in content.find_all(target["html-tag"])]
         elif target["html-class"]:
-            result = [item.text for item in content.find_all(target["html-class"])]
+            result = [item.text for item in content.find_all(class_=target["html-class"])]
         elif target["html-id"]:
-            result = [item.text for item in content.find_all(target["html-id"])]
+            result = [item.text for item in content.find_all(id=target["html-id"])]
         else:
             result = [item.text for item in content.find_all()]
 
