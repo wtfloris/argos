@@ -33,13 +33,13 @@ async def main():
         content = BeautifulSoup(r.content, "html.parser")
 
         if target["html-tag"]:
-            result = list(content.find_all(target["html-tag"]))
+            result = [item.text for item in content.find_all(target["html-tag"]))]
         elif target["html-class"]:
-            result = list(content.find_all(class_=target["html-class"]))
+            result = [item.text for item in content.find_all(target["html-class"]))]
         elif target["html-id"]:
-            result = list(content.find_all(id=target["html-id"]))
+            result = [item.text for item in content.find_all(target["html-id"]))]
         else:
-            result = list(content.find_all())
+            result = [item.text for item in content.find_all())]
 
         # If the file does not exist yet, we're not going to bother
         # creating it because that will happen anyways
