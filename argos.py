@@ -30,16 +30,14 @@ async def main():
         if not r.status_code == 200:
             raise ConnectionError(f"Got a non-OK status code: {r.status_code}")
 
-        content = BeautifulSoup(r.content, "html.parser")
-
         if target["html-tag"]:
-            result = [item.text for item in content.find_all(target["html-tag"])]
+            result = [item.text for item in BeautifulSoup(r.content, "html.parser").find_all(target["html-tag"])]
         elif target["html-class"]:
-            result = [item.text for item in content.find_all(class_=target["html-class"])]
+            result = [item.text for item in BeautifulSoup(r.content, "html.parser").find_all(class_=target["html-class"])]
         elif target["html-id"]:
-            result = [item.text for item in content.find_all(id=target["html-id"])]
+            result = [item.text for item in BeautifulSoup(r.content, "html.parser").find_all(id=target["html-id"])]
         else:
-            result = [item.text for item in content.find_all()]
+            result = r.content
 
         # If the file does not exist yet, we're not going to bother
         # creating it because that will happen anyways
