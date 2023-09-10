@@ -39,7 +39,7 @@ async def main():
         elif target["html-id"]:
             result = [item.text for item in content.find_all(target["html-id"])]
         else:
-            result = [item.text for item in content.find_all())]
+            result = [item.text for item in content.find_all()]
 
         # If the file does not exist yet, we're not going to bother
         # creating it because that will happen anyways
