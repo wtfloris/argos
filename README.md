@@ -1,7 +1,7 @@
-# argos
-Argos watches web pages for changes and can send Telegram notifications
+# Argos
+Argos watches web pages for changes and sends Telegram notifications when they are detected.
 
-Use the targets.py.sample file to create your targets.py file
+Use the targets.py.sample file to create your targets.py file.
 
 Create a secrets.py file with the following content:
 
