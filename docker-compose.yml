@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  argos:
+    container_name: argos
+    healthcheck:
+      test: pgrep cron || exit 1
+      start_period: 5s
+    image: wtfloris/argos:latest
+    restart: unless-stopped
+    volumes:
+      - /root/argos/data:/data
+    working_dir: /argos
