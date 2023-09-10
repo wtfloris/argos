@@ -33,11 +33,11 @@ async def main():
         content = BeautifulSoup(r.content, "html.parser")
 
         if target["html-tag"]:
-            result = [item.text for item in content.find_all(target["html-tag"]))]
+            result = [item.text for item in content.find_all(target["html-tag"])]
         elif target["html-class"]:
-            result = [item.text for item in content.find_all(target["html-class"]))]
+            result = [item.text for item in content.find_all(target["html-class"])]
         elif target["html-id"]:
-            result = [item.text for item in content.find_all(target["html-id"]))]
+            result = [item.text for item in content.find_all(target["html-id"])]
         else:
             result = [item.text for item in content.find_all())]
 
