@@ -27,7 +27,7 @@ async def main():
         else:
             raise ValueError(f"Unknown method: {target['method']}")
 
-        if not r.status_code == 200:
+        if r.status_code >= 300:
             raise ConnectionError(f"Got a non-OK status code: {r.status_code}")
 
         if target["html-tag"]:
